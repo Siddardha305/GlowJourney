@@ -1,0 +1,89 @@
+import Link from "next/link";
+import React, { useState } from "react";
+
+export const navItemsData = [
+  {
+    name: "Courses",
+    url: "/courses",
+  },
+  {
+    name: "Portfolio",
+    url: "/portfolio",
+  },
+  {
+    name: "Our Products",
+    url: "/our-products",
+  },
+  {
+    name: "About",
+    url: "/about",
+  },
+];
+
+type Props = {
+  activeItem: number;
+  isMobile: boolean;
+};
+
+const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <>
+      <div className="hidden 800px:flex">
+        {navItemsData &&
+          navItemsData.map((i, index) => (
+            <Link href={`${i.url}`} key={index} passHref>
+              <span
+                className={`${activeItem === index
+                  ? "text-theme-accent"
+                  : "text-theme-text"
+                  } text-[18px] px-3 font-Poppins font-[400] relative inline-block overflow-hidden h-[24px] cursor-pointer`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <span
+                  className={`inline-block transition-transform duration-300 ease-out ${hoveredIndex === index ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+                    }`}
+                >
+                  {i.name}
+                </span>
+                <span
+                  className={`absolute left-0 top-full w-full px-3 inline-block transition-transform duration-300 ease-out ${hoveredIndex === index ? '-translate-y-full opacity-100' : 'translate-y-0 opacity-0'
+                    }`}
+                >
+                  {i.name}
+                </span>
+              </span>
+            </Link>
+          ))}
+      </div>
+      {isMobile && (
+        <div className="800px:hidden mt-5">
+          <div className="w-full text-center py-6">
+            <Link href={"/"} passHref>
+              <span
+                className={`text-[25px] font-Poppins font-[500] text-theme-text hover:text-theme-accent transition-colors`}
+              >Glow Journey</span>
+            </Link>
+          </div>
+          {navItemsData &&
+            navItemsData.map((i, index) => (
+              <Link href={i.url} passHref key={index}>
+                <span
+                  className={`${activeItem === index
+                    ? "text-theme-accent"
+                    : "text-theme-text"
+                    } block py-5 text-[18px] px-6 font-Poppins font-[400]`}
+                >
+                  {i.name}
+                </span>
+              </Link>
+            ))}
+        </div>
+      )}
+    </>
+  );
+};
+
+export default NavItems;

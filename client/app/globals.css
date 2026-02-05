@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 46, 2, 25;
+  --background-end-rgb: 24, 0, 14;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 220, 235;
+    --background-start-rgb: 46, 2, 25;
+    /* Deep burgundy */
+    --background-end-rgb: 15, 1, 6;
+  }
+}
+
+/* Clean scroll - auto for better performance */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: auto;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))) no-repeat min-h-screen;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbars for custom horizontal scroll sections */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Performance optimizations */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize scrolling performance - use sparingly */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Continuous scroll animation for testimonials */
+@keyframes scroll-continuous {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-continuous {
+  animation: scroll-continuous 40s linear infinite;
+}
+
+/* Text testimonials marquee animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 30s linear infinite;
+}
+
+/* Our Works smooth infinite scroll */
+@keyframes scroll-works {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-works {
+  animation: scroll-works 30s linear infinite;
+}
+
+.hover\:animation-paused:hover {
+  animation-play-state: paused;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+.hero_animation {
+  background-image: linear-gradient(147.92deg, hsla(239, 76%, 53%, 0.456) 10.41%, hsla(0, 0%, 100%, 0) 89.25%);
+  animation: changeBackgroundColor 8s infinite alternate;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #e31b6d 2.34%, #ff80b5 100.78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+
+@keyframes changeBackgroundColor {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  16.67% {
+    opacity: 0.9;
+  }
+
+  33.33% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  66.67% {
+    opacity: 0.5;
+  }
+
+  83.33% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-2px);
+  }
+
+  40% {
+    transform: translateX(2px);
+  }
+
+  60% {
+    transform: translateX(-2px);
+  }
+
+  80% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-out;
+}
