@@ -48,8 +48,8 @@ export default function HeroImage() {
                 <div
                     ref={cardRef}
                     className="relative w-full max-w-[380px] sm:max-w-[800px] h-[230px] sm:h-[450px]
-                      bg-gradient-to-br from-gray-900/80 to-black/80
-                      rounded-2xl backdrop-blur-sm border border-purple-500/30 shadow-[0_0_50px_rgba(147,51,234,0.15)]
+                      bg-white
+                      rounded-2xl border border-gray-200 shadow-xl
                       transition-all duration-300 ease-out overflow-hidden transform-gpu"
                     style={{
                         transform: `rotateY(${mousePosition.x * 0.5}deg) rotateX(${-mousePosition.y * 0.5}deg)`,
@@ -62,19 +62,12 @@ export default function HeroImage() {
                             alt="Home BB"
                             fill
                             sizes="(max-width: 768px) 100vw, 800px"
-                            className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                            className="object-cover transition-opacity duration-500"
                             priority
                             unoptimized
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
                     </div>
-
-                    {/* Glow effect inside card */}
-                    <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay" />
                 </div>
-
-                {/* Glow effect behind card */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-600/20 blur-[60px] -z-10 rounded-full pointer-events-none" />
             </div>
         </div>
     )

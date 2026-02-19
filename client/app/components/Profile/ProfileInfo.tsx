@@ -21,7 +21,7 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
   const [editProfile, { isSuccess: success, error: updateError }] =
     useEditProfileMutation();
   const [loadUser, setLoadUser] = useState(false);
-  const {} = useLoadUserQuery(undefined, { skip: loadUser ? false : true });
+  const { } = useLoadUserQuery(undefined, { skip: loadUser ? false : true });
 
   const imageHandler = async (e: any) => {
     const fileReader = new FileReader();
@@ -58,7 +58,7 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
         toast.error("Failed to update profile");
       }
     }
-    if(success){
+    if (success) {
       toast.success("Profile updated successfully!");
       setLoadUser(true);
     }
@@ -82,7 +82,7 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
             alt=""
             width={120}
             height={120}
-            className="w-[120px] h-[120px] cursor-pointer border-[3px] border-[#37a39a] rounded-full"
+            className="w-[120px] h-[120px] cursor-pointer border-[3px] border-theme-accent rounded-full"
           />
           <input
             type="file"
@@ -93,8 +93,8 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
             accept="image/png,image/jpg,image/jpeg,image/webp"
           />
           <label htmlFor="avatar">
-            <div className="w-[30px] h-[30px] bg-slate-900 rounded-full absolute bottom-2 right-2 flex items-center justify-center cursor-pointer">
-              <AiOutlineCamera size={20} className="z-1" />
+            <div className="w-[30px] h-[30px] bg-theme-accent rounded-full absolute bottom-2 right-2 flex items-center justify-center cursor-pointer">
+              <AiOutlineCamera size={20} className="z-1 text-white" />
             </div>
           </label>
         </div>
@@ -105,27 +105,27 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
         <form onSubmit={handleSubmit}>
           <div className="800px:w-[50%] m-auto block pb-4">
             <div className="w-[100%]">
-              <label className="block pb-2">Full Name</label>
+              <label className="block pb-2 text-theme-text font-semibold">Full Name</label>
               <input
                 type="text"
-                className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                className={`${styles.input} !w-[95%] mb-4 800px:mb-0 border-gray-300 focus:border-theme-accent`}
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="w-[100%] pt-2">
-              <label className="block pb-2">Email Address</label>
+              <label className="block pb-2 text-theme-text font-semibold">Email Address</label>
               <input
                 type="text"
                 readOnly
-                className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
+                className={`${styles.input} !w-[95%] mb-1 800px:mb-0 border-gray-300 bg-gray-50`}
                 required
                 value={user?.email}
               />
             </div>
             <input
-              className={`w-full 800px:w-[250px] h-[40px] border border-[#37a39a] text-center dark:text-[#fff] text-black rounded-[3px] mt-8 cursor-pointer`}
+              className={`w-full 800px:w-[250px] h-[40px] border border-theme-accent text-center text-white bg-theme-accent hover:bg-theme-accent-hover transition-colors rounded-[3px] mt-8 cursor-pointer font-semibold`}
               required
               value="Update"
               type="submit"

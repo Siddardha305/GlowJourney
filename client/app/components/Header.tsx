@@ -97,18 +97,18 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
         ) : (
           <div className="w-full relative z-[999]">
             <div
-              className={`fixed z-[999] transition-all duration-300 flex items-center justify-between px-4
+              className={`fixed z-[999] transition-all duration-300 flex items-center px-4
           ${active
-                  ? "top-4 left-1/2 -translate-x-1/2 h-[60px] w-[95%] max-w-[1200px] rounded-full bg-black/50 shadow-[0_0_20px_rgba(227,27,109,0.3)] backdrop-blur-md"
+                  ? "top-4 left-1/2 -translate-x-1/2 h-[60px] w-[95%] max-w-[1200px] rounded-full bg-white/80 shadow-[0_0_20px_rgba(0,0,0,0.05)] backdrop-blur-md border border-black/5"
                   : "top-0 left-1/2 -translate-x-1/2 h-[80px] w-full max-w-[1400px] bg-transparent"}
         `}
             >
               {/* Logo */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mr-10">
                 <Link href={"/"} className="flex items-center gap-2 group">
                   <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center">
                     <Image
-                      src="/images/anil-logo.png"
+                      src="/home/Logo.jpg"
                       alt="Glow Journey Logo"
                       width={32}
                       height={32}
@@ -122,12 +122,12 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
               </div>
 
               {/* Desktop Navigation */}
-              <div className="hidden 800px:flex items-center gap-6">
+              <div className="hidden 800px:flex items-center gap-6 mr-auto">
                 <NavItems activeItem={activeItem} isMobile={false} />
               </div>
 
               {/* Right Side Actions */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 ml-auto 800px:ml-0">
                 {/* Theme Switcher - Optional based on design, keeping it for functionality */}
                 {/* <ThemeSwitcher /> */}
 
@@ -171,7 +171,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
             {/* Mobile Sidebar */}
             {openSidebar && (
               <div
-                className="fixed w-full h-screen top-0 left-0 z-[99999] bg-black/40 backdrop-blur-sm animate-fadeIn"
+                className="fixed w-full h-screen top-0 left-0 z-[99999] bg-black/10 backdrop-blur-sm animate-fadeIn"
                 onClick={handleClose}
                 id="screen"
               >

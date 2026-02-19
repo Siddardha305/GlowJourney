@@ -14,11 +14,11 @@ const config: Config = {
         Josefin: ["var(--font-Josefin)"],
       },
       colors: {
-        "theme-bg-dark": "#0f0106",
-        "theme-bg-light": "#2e0219",
-        "theme-accent": "#e31b6d",
-        "theme-accent-hover": "#c2155a",
-        "theme-text": "#ffdbe9",
+        "theme-bg-dark": "#FFF9F5",      // Cream (Main BG)
+        "theme-bg-light": "#FFFFFF",     // White (Cards/Secondary)
+        "theme-accent": "#3E2723",       // Dark Brown (Buttons/Accents)
+        "theme-accent-hover": "#5D4037", // Lighter Brown (Hover)
+        "theme-text": "#3E2723",         // Dark Brown (Text)
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

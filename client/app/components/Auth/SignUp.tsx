@@ -63,22 +63,22 @@ const Signup: FC<Props> = ({ setRoute }) => {
   return (
     <div className="flex flex-col md:flex-row w-full h-[600px] md:h-auto overflow-hidden">
       {/* Left: Brand Section */}
-      <div className="hidden md:flex md:w-[45%] bg-gradient-to-br from-theme-accent/40 via-black to-black relative flex-col justify-between p-10 text-white overflow-hidden">
+      <div className="hidden md:flex md:w-[45%] bg-theme-bg-dark relative flex-col justify-between p-10 text-theme-text overflow-hidden">
         <div className="relative z-10">
           <h1 className="text-3xl font-bold mb-4">Join Glow Journey</h1>
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-gray-600 leading-relaxed">
             Unlock your creative potential and become a certified makeup artist.
           </p>
         </div>
 
         {/* Decorative Circles */}
-        <div className="absolute top-[-50px] left-[-50px] w-40 h-40 bg-theme-accent/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-[-20px] right-[-20px] w-60 h-60 bg-theme-accent/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-[-50px] left-[-50px] w-40 h-40 bg-white/50 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[-20px] right-[-20px] w-60 h-60 bg-white/40 rounded-full blur-3xl"></div>
 
         <div className="relative z-10">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
-            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-              <AiOutlineCheckCircle className="text-xl text-white" />
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center">
+              <AiOutlineCheckCircle className="text-xl text-theme-accent" />
             </div>
             <span>Start your career today</span>
           </div>
@@ -86,29 +86,29 @@ const Signup: FC<Props> = ({ setRoute }) => {
       </div>
 
       {/* Right: Form Section */}
-      <div className="w-full md:w-[55%] p-8 sm:p-10 md:p-12 bg-black relative overflow-y-auto h-full max-h-[600px] md:max-h-[85vh] no-scrollbar">
+      <div className="w-full md:w-[55%] p-8 sm:p-10 md:p-12 bg-white relative overflow-y-auto h-full max-h-[600px] md:max-h-[85vh] no-scrollbar">
         <div className="text-left mb-8">
-          <div className="inline-block p-2 rounded-full bg-white/5 mb-4 border border-white/5">
+          <div className="inline-block p-2 rounded-full bg-black/5 mb-4 border border-black/5">
             <AiOutlineUser className="text-theme-accent" size={20} />
           </div>
-          <h2 className="text-3xl font-bold text-white mb-2">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">
             Create account
           </h2>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-500 text-sm">
             Sign up to get started
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-gray-300" htmlFor="name">Full Name</label>
+            <label className="text-sm font-medium text-gray-700" htmlFor="name">Full Name</label>
             <input
               type="text"
               name="name"
               value={values.name}
               onChange={handleChange}
               placeholder="John Doe"
-              className={`w-full px-4 py-3 rounded-xl border bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-theme-accent transition-all ${errors.name && touched.name ? "border-red-500" : "border-white/10"
+              className={`w-full px-4 py-3 rounded-xl border bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-accent transition-all ${errors.name && touched.name ? "border-red-500" : "border-gray-200"
                 }`}
             />
             {errors.name && touched.name && (
@@ -117,14 +117,14 @@ const Signup: FC<Props> = ({ setRoute }) => {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-gray-300" htmlFor="email">Email</label>
+            <label className="text-sm font-medium text-gray-700" htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
               value={values.email}
               onChange={handleChange}
               placeholder="your@email.com"
-              className={`w-full px-4 py-3 rounded-xl border bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-theme-accent transition-all ${errors.email && touched.email ? "border-red-500" : "border-white/10"
+              className={`w-full px-4 py-3 rounded-xl border bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-accent transition-all ${errors.email && touched.email ? "border-red-500" : "border-gray-200"
                 }`}
             />
             {errors.email && touched.email && (
@@ -133,7 +133,7 @@ const Signup: FC<Props> = ({ setRoute }) => {
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-sm font-medium text-gray-300" htmlFor="password">Password</label>
+            <label className="text-sm font-medium text-gray-700" htmlFor="password">Password</label>
             <div className="relative">
               <input
                 type={!show ? "password" : "text"}
@@ -141,11 +141,11 @@ const Signup: FC<Props> = ({ setRoute }) => {
                 value={values.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className={`w-full px-4 py-3 rounded-xl border bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-theme-accent transition-all ${errors.password && touched.password ? "border-red-500" : "border-white/10"
+                className={`w-full px-4 py-3 rounded-xl border bg-gray-50 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-accent transition-all ${errors.password && touched.password ? "border-red-500" : "border-gray-200"
                   }`}
               />
               <div
-                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400 hover:text-white"
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400 hover:text-theme-accent"
                 onClick={() => setShow(!show)}
               >
                 {!show ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />}
@@ -159,29 +159,29 @@ const Signup: FC<Props> = ({ setRoute }) => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 bg-theme-accent hover:bg-theme-accent-hover text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-theme-accent/20 mt-2"
+            className="w-full py-3 bg-theme-accent hover:bg-theme-accent-hover text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-black/10 mt-2"
           >
             {isLoading ? "Creating account..." : "Create Account"}
           </button>
 
           <div className="flex items-center gap-4 my-6">
-            <div className="h-px bg-white/10 flex-1" />
+            <div className="h-px bg-gray-200 flex-1" />
             <span className="text-xs text-gray-500 uppercase">Or continue with</span>
-            <div className="h-px bg-white/10 flex-1" />
+            <div className="h-px bg-gray-200 flex-1" />
           </div>
 
           <div className="grid grid-cols-1 gap-3">
             <button
               type="button"
               onClick={() => signIn("google")}
-              className="w-full py-2.5 border border-white/10 rounded-xl flex items-center justify-center gap-3 hover:bg-white/5 transition-all group"
+              className="w-full py-2.5 border border-gray-200 rounded-xl flex items-center justify-center gap-3 hover:bg-gray-50 transition-all group"
             >
               <FcGoogle size={20} />
-              <span className="text-sm font-medium text-gray-300 group-hover:text-white">Google</span>
+              <span className="text-sm font-medium text-gray-600 group-hover:text-gray-900">Google</span>
             </button>
           </div>
 
-          <p className="text-center text-sm text-gray-400 mt-6">
+          <p className="text-center text-sm text-gray-500 mt-6">
             Already have an account?{" "}
             <span
               className="text-theme-accent font-medium cursor-pointer hover:underline"

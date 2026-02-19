@@ -34,7 +34,7 @@ const ChangePassword: FC<Props> = (props) => {
 
   return (
     <div className="w-full pl-7 px-2 800px:px-5 800px:pl-0">
-      <h1 className="block text-[25px] 800px:text-[30px] font-Poppins text-center font-[500] text-black dark:text-[#fff] pb-2">
+      <h1 className="block text-[25px] 800px:text-[30px] font-Poppins text-center font-[500] text-theme-text pb-2">
         Change Password
       </h1>
       <div className="w-full">
@@ -44,42 +44,42 @@ const ChangePassword: FC<Props> = (props) => {
           className="flex flex-col items-center"
         >
           <div className=" w-[100%] 800px:w-[60%] mt-5">
-            <label className="block pb-2 text-black dark:text-[#fff]">
+            <label className="block pb-2 text-theme-text font-semibold">
               Enter your old password
             </label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0 text-black dark:text-[#fff]`}
+              className={`${styles.input} !w-[95%] mb-4 800px:mb-0 text-gray-900 border-gray-300 focus:border-theme-accent`}
               required
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
             />
           </div>
           <div className=" w-[100%] 800px:w-[60%] mt-2">
-            <label className="block pb-2 text-black dark:text-[#fff]">
+            <label className="block pb-2 text-theme-text font-semibold">
               Enter your new password
             </label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0 text-black dark:text-[#fff]`}
+              className={`${styles.input} !w-[95%] mb-4 800px:mb-0 text-gray-900 border-gray-300 focus:border-theme-accent`}
               required
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
             />
           </div>
           <div className=" w-[100%] 800px:w-[60%] mt-2">
-            <label className="block pb-2 text-black dark:text-[#fff]">
+            <label className="block pb-2 text-theme-text font-semibold">
               Enter your confirm password
             </label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0 text-black dark:text-[#fff]`}
+              className={`${styles.input} !w-[95%] mb-4 800px:mb-0 text-gray-900 border-gray-300 focus:border-theme-accent`}
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <input
-              className={`w-[95%] h-[40px] border border-[#37a39a] text-center text-black dark:text-[#fff] rounded-[3px] mt-8 cursor-pointer`}
+              className={`w-[95%] h-[40px] border border-theme-accent text-center text-white bg-theme-accent hover:bg-theme-accent-hover transition-colors rounded-[3px] mt-8 cursor-pointer font-semibold`}
               required
               value="Update"
               type="submit"

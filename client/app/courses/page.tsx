@@ -43,7 +43,7 @@ const CoursesContent = (props: Props) => {
   const categories = categoriesData?.layout?.categories;
 
   return (
-    <div>
+    <div className="min-h-screen bg-theme-bg-dark">
       {isLoading ? (
         <Loader />
       ) : (
@@ -53,12 +53,22 @@ const CoursesContent = (props: Props) => {
             setRoute={setRoute}
             open={open}
             setOpen={setOpen}
-            activeItem={0}
+            activeItem={1}
           />
-          <div className="w-[95%] 800px:w-[85%] m-auto min-h-[70vh] pt-32">
+          <div className="w-[95%] 800px:w-[85%] m-auto min-h-[70vh] pt-32 pb-20">
+            <Heading
+              title="Courses - Glow Journey"
+              description="Explore our professional makeup courses"
+              keywords="makeup courses, beauty education"
+            />
+
+            <h1 className="text-4xl md:text-5xl font-serif text-theme-text text-center mb-12">
+              Our Professional <span className="italic text-theme-accent">Courses</span>
+            </h1>
+
             {
               courses && courses.length === 0 && (
-                <p className={`${styles.label} justify-center min-h-[50vh] flex items-center`}>
+                <p className={`${styles.label} justify-center min-h-[50vh] flex items-center text-theme-text/60`}>
                   {search ? "No courses found!" : "No courses found in this category. Please try another one!"}
                 </p>
               )

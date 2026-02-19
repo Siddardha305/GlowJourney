@@ -15,6 +15,11 @@ import TextTestimonials from "./components/Testimonials/TextTestimonials";
 import SmoothScroll from "./components/SmoothScroll";
 import FAQ from "./components/FAQ/FAQ";
 
+import ArtistHighlight from "./components/ArtistHighlight/ArtistHighlight";
+import LoopVideo from "./components/LoopVideo/LoopVideo";
+
+import PromoBanner from "./components/Banner/PromoBanner";
+
 interface Props { }
 
 const Page: FC<Props> = (props) => {
@@ -39,15 +44,17 @@ const Page: FC<Props> = (props) => {
           route={route}
         />
         <HomeHero />
-        <AIFeatureSection />
-        <ScrollStackCards />
+        <LoopVideo />
+        <ArtistHighlight />
+        {/* <ScrollStackCards /> - Removed per user request */}
         {/* <Reviews /> */}
-        <WhoIsThisFor />
+        {/* <WhoIsThisFor /> - Removed per user request */}
         <Courses />
         <OurWorks />
-        <VideoTestimonials />
+        {/* <VideoTestimonials /> */}
         <TextTestimonials />
         <FAQ />
+        <AIFeatureSection />
         <Footer />
       </div>
     </>

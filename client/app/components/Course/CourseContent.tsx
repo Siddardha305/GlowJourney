@@ -9,12 +9,12 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   id: string;
-  user:any;
+  user: any;
 };
 
-const CourseContent = ({ id,user }: Props) => {
+const CourseContent = ({ id, user }: Props) => {
   const router = useRouter();
-  const { data: contentData, isLoading,refetch } = useGetCourseContentQuery(id,{refetchOnMountOrArgChange:true});
+  const { data: contentData, isLoading, refetch } = useGetCourseContentQuery(id, { refetchOnMountOrArgChange: true });
   const data = contentData?.content;
 
   const [activeVideo, setActiveVideo] = useState(0);
@@ -30,7 +30,7 @@ const CourseContent = ({ id,user }: Props) => {
             <div className="flex items-center justify-between px-6 py-4">
               <button
                 onClick={() => router.push("/profile")}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-theme-accent hover:bg-theme-accent-hover text-white transition-colors"
               >
                 <IoArrowBack size={20} />
                 <span className="font-medium">Back to Courses</span>
@@ -59,12 +59,12 @@ const CourseContent = ({ id,user }: Props) => {
               />
             </div>
             <div className="hidden 800px:block 800px:col-span-3">
-            <CourseContentList
-              setActiveVideo={setActiveVideo}
-              data={data}
-              activeVideo={activeVideo}
-            />
-          </div>
+              <CourseContentList
+                setActiveVideo={setActiveVideo}
+                data={data}
+                activeVideo={activeVideo}
+              />
+            </div>
           </div>
         </>
       )}

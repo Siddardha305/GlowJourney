@@ -3,17 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 46, 2, 25;
-  --background-end-rgb: 24, 0, 14;
+  --foreground-rgb: 62, 39, 35;
+  /* Dark Brown */
+  --background-start-rgb: 255, 249, 245;
+  /* Cream */
+  --background-end-rgb: 255, 255, 255;
+  /* White */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 220, 235;
-    --background-start-rgb: 46, 2, 25;
-    /* Deep burgundy */
-    --background-end-rgb: 15, 1, 6;
+    --foreground-rgb: 62, 39, 35;
+    --background-start-rgb: 255, 249, 245;
+    /* Soft Cream to White */
+    --background-end-rgb: 255, 255, 255;
   }
 }
 
@@ -139,7 +142,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #e31b6d 2.34%, #ff80b5 100.78%);
+  background: linear-gradient(90deg, #3E2723 2.34%, #5D4037 100.78%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

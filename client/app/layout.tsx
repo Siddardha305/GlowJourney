@@ -10,7 +10,7 @@ import React, { FC, useEffect } from "react";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Loader from "./components/Loader/Loader";
 import socketIO from "socket.io-client";
-import Head from "next/head";
+// import Head from "next/head"; // Removed for App Router compatibility
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || "";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
@@ -33,14 +33,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <Head>
+      <head>
         <title>Glow Journey - Professional Makeup Artistry Platform</title>
         <meta name="description" content="Learn professional makeup artistry with Glow Journey. Master bridal, editorial, and daily makeup techniques." />
-        <link rel="icon" href="/images/anil-logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/anil-logo.png" />
+        <link rel="icon" href="/home/Logo.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/home/Logo.jpg" />
         <meta property="og:title" content="Glow Journey - Professional Makeup Courses" />
         <meta property="og:description" content="Learn professional makeup artistry with expert instructors" />
-        <meta property="og:image" content="https://glowjourney.in/home/hero_makeup.png" />
+        <meta property="og:image" content="https://glowjourney.in/home/Logo.jpg" />
         <meta property="og:url" content="https://glowjourney.in" />
         <meta property="og:type" content="website" />
         <meta
@@ -50,8 +50,8 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Glow Journey - Professional Makeup Courses" />
         <meta name="twitter:description" content="Learn professional makeup artistry with expert instructors" />
-        <meta name="twitter:image" content="https://glowjourney.in/home/hero_makeup.png" />
-      </Head>
+        <meta name="twitter:image" content="https://glowjourney.in/home/Logo.jpg" />
+      </head>
       <body
         className={`${poppins.variable} ${josefin.variable} bg-gradient-to-b from-gray-900 to-black bg-no-repeat duration-300`}
         suppressHydrationWarning={true}

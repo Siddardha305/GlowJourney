@@ -66,24 +66,20 @@ const FAQ = () => {
   return (
     <div className="w-full bg-theme-bg-dark py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-theme-accent/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-theme-accent/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <div className="inline-block px-4 sm:px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-4 sm:mb-6">
-            <span className="text-gray-400 text-xs sm:text-sm font-medium tracking-wider uppercase">F.A.Q.</span>
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 sm:px-6 py-2 rounded-full bg-theme-accent/5 border border-theme-accent/10 mb-6">
+            <span className="text-theme-accent text-xs sm:text-sm font-medium tracking-wider uppercase">F.A.Q.</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-theme-text mb-3 sm:mb-4">
-            Have Questions?
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-theme-accent-hover">
-              We've Answered Them.
-            </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-theme-text mb-6">
+            Have Questions? <br />
+            <span className="italic font-light text-theme-accent">We have answers.</span>
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
-            From tools to timelines to placements, get<br className="hidden sm:block" />
-            full clarity before you take the next step.
+          <p className="text-theme-text/70 text-lg max-w-2xl mx-auto leading-relaxed">
+            Everything you need to know about the course and community.
           </p>
         </div>
 
@@ -100,21 +96,27 @@ const FAQ = () => {
               style={{ transitionDelay: `${index * 50}ms` }}
             >
               <div
-                className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-theme-accent/30 hover:shadow-[0_0_20px_rgba(227,27,109,0.15)]"
+                className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === index
+                    ? 'border-theme-accent shadow-lg shadow-theme-accent/5'
+                    : 'border-theme-accent/10 hover:border-theme-accent/30 hover:shadow-md'
+                  }`}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left group"
+                  className="w-full px-6 md:px-8 py-5 md:py-6 flex items-center justify-between text-left group"
                 >
-                  <span className="text-sm sm:text-base md:text-lg font-medium text-white group-hover:text-theme-accent transition-colors pr-4">
+                  <span className={`text-lg font-medium transition-colors pr-8 ${openIndex === index ? 'text-theme-accent' : 'text-theme-text group-hover:text-theme-accent'
+                    }`}>
                     {faq.question}
                   </span>
-                  <div className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-gradient-to-r from-theme-accent to-theme-accent-hover border-transparent rotate-180' : 'group-hover:border-theme-accent/50'
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index
+                      ? 'bg-theme-accent text-white rotate-180'
+                      : 'bg-theme-bg-dark text-theme-text border border-theme-accent/10 group-hover:border-theme-accent/30'
                     }`}>
                     {openIndex === index ? (
-                      <Minus className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <Minus className="w-4 h-4" />
                     ) : (
-                      <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                      <Plus className="w-4 h-4" />
                     )}
                   </div>
                 </button>
@@ -123,9 +125,9 @@ const FAQ = () => {
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                 >
-                  <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 md:pb-6 pt-0">
-                    <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-4 sm:mb-5" />
-                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                    <div className="h-px bg-theme-accent/10 mb-5" />
+                    <p className="text-theme-text/80 text-base md:text-lg leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -136,13 +138,13 @@ const FAQ = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="text-center mt-10 sm:mt-12 md:mt-16">
-          <p className="text-gray-400 text-sm sm:text-base mb-4">
+        <div className="text-center mt-16">
+          <p className="text-theme-text/60 mb-6">
             Still have questions? We're here to help!
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-theme-accent to-theme-accent-hover text-white font-semibold text-sm sm:text-base hover:opacity-90 transition-all duration-300 shadow-[0_0_30px_rgba(227,27,109,0.4)] hover:shadow-[0_0_40px_rgba(227,27,109,0.6)]"
+            className="inline-flex items-center px-8 py-3 rounded-full bg-theme-text text-theme-bg-dark font-medium tracking-wide hover:bg-theme-accent transition-colors duration-300 shadow-lg hover:shadow-theme-accent/20"
           >
             Contact Us
           </a>

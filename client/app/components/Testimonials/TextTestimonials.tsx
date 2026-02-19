@@ -103,18 +103,18 @@ const secondRowReviews = [
 ];
 
 const ReviewCard = ({ name, role, text, rating }: { name: string; role: string; text: string; rating: number }) => (
-    <div className="flex-shrink-0 w-[400px] bg-gradient-to-br from-theme-accent/20 to-theme-bg-dark/40 border border-theme-accent/20 rounded-2xl p-6 mx-3">
+    <div className="flex-shrink-0 w-[400px] bg-white border border-theme-accent/10 rounded-2xl p-6 mx-3 shadow-sm hover:shadow-md transition-all duration-300 hover:border-theme-accent/30">
         <div className="flex items-center gap-1 mb-3">
             {[...Array(rating)].map((_, i) => (
-                <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                <svg key={i} className="w-4 h-4 text-theme-accent fill-current" viewBox="0 0 20 20">
                     <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                 </svg>
             ))}
         </div>
-        <p className="text-gray-300 text-sm mb-4 leading-relaxed">&ldquo;{text}&rdquo;</p>
+        <p className="text-theme-text/80 text-sm mb-4 leading-relaxed font-medium italic">&ldquo;{text}&rdquo;</p>
         <div>
-            <p className="text-white font-semibold text-sm">{name}</p>
-            <p className="text-theme-accent text-xs">{role}</p>
+            <p className="text-theme-text font-serif font-bold text-lg">{name}</p>
+            <p className="text-theme-accent/80 text-xs uppercase tracking-wider">{role}</p>
         </div>
     </div>
 );
@@ -179,28 +179,28 @@ const TextTestimonials = () => {
     const secondRow = [...secondRowReviews, ...secondRowReviews];
 
     return (
-        <div className="w-full py-20 pt-28 bg-theme-bg-dark overflow-hidden relative">
+        <div className="w-full py-20 bg-theme-bg-dark overflow-hidden relative">
             {/* Background Effects */}
-            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-theme-accent/10 blur-[150px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-theme-accent/5 blur-[100px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
             <div className="relative z-10">
                 {/* Header */}
                 <div className="text-center mb-16 px-4">
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 uppercase tracking-tight">
-                        What Our Students Say
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-theme-text mb-6">
+                        What Our <span className="italic font-light text-theme-accent">Students</span> Say
                     </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-theme-text/70 text-lg max-w-2xl mx-auto leading-relaxed">
                         Join thousands of satisfied students who transformed their careers in beauty
                     </p>
                 </div>
 
                 {/* First Row - Left to Right */}
-                <div className="mb-8">
+                <div className="mb-8 pl-4">
                     <MarqueeRow reviews={firstRow} direction="left" />
                 </div>
 
                 {/* Second Row - Right to Left */}
-                <div>
+                <div className="pl-4">
                     <MarqueeRow reviews={secondRow} direction="right" />
                 </div>
             </div>

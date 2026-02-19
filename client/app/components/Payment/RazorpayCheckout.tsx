@@ -112,7 +112,7 @@ const RazorpayCheckout = ({ data, user, refetch, setOpen, appliedCoupon }: Props
           email: user?.email || "",
         },
         theme: {
-          color: "#3399cc",
+          color: "#3E2723", // Dark Brown to match theme-accent
         },
         modal: {
           ondismiss: function () {
@@ -138,25 +138,25 @@ const RazorpayCheckout = ({ data, user, refetch, setOpen, appliedCoupon }: Props
   return (
     <div className="w-full flex flex-col items-center justify-center p-5">
       <div className="w-full mb-5">
-        <h1 className="text-[25px] font-Poppins font-[600] text-center text-black dark:text-white mb-3">
+        <h1 className="text-[25px] font-Poppins font-[600] text-center text-theme-text mb-3">
           {data.name}
         </h1>
         <div className="flex items-center justify-center mb-3">
-          <h2 className="text-[30px] font-Poppins font-[600] text-black dark:text-white">
+          <h2 className="text-[30px] font-Poppins font-[600] text-theme-text">
             ₹{finalPrice}
           </h2>
           {data.estimatedPrice && (
-            <h3 className="text-[20px] font-Poppins line-through opacity-60 ml-3 text-black dark:text-white">
+            <h3 className="text-[20px] font-Poppins line-through opacity-60 ml-3 text-gray-400">
               ₹{data.estimatedPrice}
             </h3>
           )}
         </div>
         {appliedCoupon && (
           <div className="text-center">
-            <p className="text-green-600 dark:text-green-400 font-semibold">
+            <p className="text-theme-accent font-semibold">
               Coupon "{appliedCoupon.code}" Applied!
             </p>
-            <p className="text-sm text-black dark:text-white">
+            <p className="text-sm text-gray-600">
               Original Price: ₹{data.price} | Discount: ₹{appliedCoupon.discountAmount.toFixed(2)}
             </p>
           </div>
@@ -166,12 +166,12 @@ const RazorpayCheckout = ({ data, user, refetch, setOpen, appliedCoupon }: Props
       <button
         disabled={isLoading}
         onClick={handlePayment}
-        className={`${styles.button} !w-full !h-[45px] text-[18px]`}
+        className={`${styles.button} !w-full !h-[45px] text-[18px] !bg-theme-accent hover:!bg-theme-accent-hover`}
       >
         {isLoading ? "Processing..." : "Pay Now"}
       </button>
 
-      <p className="text-[14px] text-center mt-5 text-black dark:text-white opacity-80">
+      <p className="text-[14px] text-center mt-5 text-gray-500 opacity-80">
         Secure payment powered by Razorpay
       </p>
     </div>
